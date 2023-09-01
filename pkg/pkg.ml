@@ -7,22 +7,31 @@ let uutf = Conf.with_pkg "uutf"
 let uunf = Conf.with_pkg "uunf"
 let cmdliner = Conf.with_pkg "cmdliner"
 
-let build_support () =
-  let ocaml = Conf.tool "ocaml" `Build_os in
-  OS.Cmd.run Cmd.(ocaml % "pkg/build_support.ml")
-
-let distrib =
-  (* FIXME OPAMv2, move this to an x-unicode-version field in the opam file. *)
-  let watermarks = ("UNICODE_VERSION", `String "15.0.0") :: Pkg.watermarks in
-  let exclude_paths () = Pkg.exclude_paths () >>| fun ps -> "support" :: ps in
-  Pkg.distrib ~watermarks ~massage:build_support ~exclude_paths ()
+let uucp_api =
+  [ "Uucp";
+    "Uucp__age";
+    "Uucp__alpha";
+    "Uucp__block";
+    "Uucp__break";
+    "Uucp__case";
+    "Uucp__cjk";
+    "Uucp__emoji";
+    "Uucp__func";
+    "Uucp__gc";
+    "Uucp__gen";
+    "Uucp__hangul";
+    "Uucp__id";
+    "Uucp__name";
+    "Uucp__num";
+    "Uucp__script";
+    "Uucp__white"; ]
 
 let () =
-  Pkg.describe "uucp" ~distrib @@ fun c ->
+  Pkg.describe "uucp" @@ fun c ->
   let uutf = Conf.value c uutf in
   let uunf = Conf.value c uunf in
   let cmdliner = Conf.value c cmdliner in
-  Ok [ Pkg.mllib ~api:["Uucp"] "src/uucp.mllib";
+  Ok [ Pkg.mllib ~api:uucp_api "src/uucp.mllib";
        Pkg.bin ~cond:(uutf && uunf && cmdliner) "test/ucharinfo";
        Pkg.test ~run:false "test/test";
        Pkg.test "test/perf";
