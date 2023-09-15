@@ -1,10 +1,8 @@
 (*---------------------------------------------------------------------------
-   Copyright (c) 2023 The uucp programmers. All rights reserved.
+   Copyright (c) 2013 The uucp programmers. All rights reserved.
    SPDX-License-Identifier: ISC
   ---------------------------------------------------------------------------*)
 
-(* WARNING do not edit. This file was automatically generated. *)
-
-let unicode_version = "15.1.0"
-
-
+let fold u =
+  Uucp_tmap.get
+    Uucp_case_nfkc_simple_data.nfkc_simple_fold_map_map (Uchar.to_int u)

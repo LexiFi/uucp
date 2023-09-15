@@ -81,7 +81,9 @@ module White = Uucp__white
        {{:http://www.unicode.org/reports/tr44/#CWCF}
        Changes_When_Casefolded},
        {{:http://www.unicode.org/reports/tr44/#CWCM}
-       Changes_When_Casemapped}.}
+       Changes_When_Casemapped},
+       {{:https://www.unicode.org/reports/tr44/proposed.html#CWKCF}
+       Changes_When_NFKC_Casefolded}.}
     {- Normalization. All properties under that section name in
        {{:http://www.unicode.org/reports/tr44/#Property_Index_Table}
        this table}.}
@@ -93,7 +95,8 @@ module White = Uucp__white
        Indic_Syllabic_Category},
        {{:http://www.unicode.org/reports/tr44/#Indic_Positional_Category}
        Indic_Positional_Category},
-       {{:http://www.unicode.org/reports/tr44/#Prepended_Concatenation_Mark}Prepended_Concatenation_Mark}}
+       {{:http://www.unicode.org/reports/tr44/#Prepended_Concatenation_Mark}
+       Prepended_Concatenation_Mark}}
     {- Bidirectional. All properties under that section name in
        {{:http://www.unicode.org/reports/tr44/#Property_Index_Table}
        this table}.}

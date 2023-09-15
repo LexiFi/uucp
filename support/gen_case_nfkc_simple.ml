@@ -1,5 +1,5 @@
 (*---------------------------------------------------------------------------
-   Copyright (c) 2014 The uucp programmers. All rights reserved.
+   Copyright (c) 2023 The uucp programmers. All rights reserved.
    SPDX-License-Identifier: ISC
   ---------------------------------------------------------------------------*)
 
@@ -21,9 +21,7 @@ let pp_map_prop prop pname ppf ucd =
     pp_map_value ~default:`Self size
 
 let pp_props ppf ucd =
-  pp_map_prop Uucd.nfkc_casefold "nfkc_fold_map" ppf ucd;
-(*  let prop = Gen.pp_prop_tmapbool_ucd ppf ucd in
-  prop Uucd.changes_when_nfkc_casefolded "changes_when_casefolded"; *)
+  pp_map_prop Uucd.nfkc_simple_casefold "nfkc_simple_fold_map" ppf ucd;
   ()
 
 let pp_mod ppf ucd = Gen.pp_mod pp_props ppf ucd

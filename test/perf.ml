@@ -38,6 +38,7 @@ let lookup_break count =
   prop "grapheme_cluster" Uucp.Break.grapheme_cluster;
   prop "word" Uucp.Break.word;
   prop "sentence" Uucp.Break.sentence;
+  prop "indic_conjunct_break" Uucp.Break.indic_conjunct_break;
   prop "east_asian_width" Uucp.Break.east_asian_width;
   ()
 
@@ -57,8 +58,9 @@ let lookup_case count =
 let lookup_cjk count =
   let prop fname p = prop count "Uucd.Cjk" fname p in
   prop "ideographic" Uucp.Cjk.is_ideographic;
-  prop "ids_bin_op" Uucp.Cjk.is_ids_bin_op;
-  prop "ids_tri_op" Uucp.Cjk.is_ids_tri_op;
+  prop "ids_unary_operator" Uucp.Cjk.is_ids_unary_operator;
+  prop "ids_binary_operator" Uucp.Cjk.is_ids_binary_operator;
+  prop "ids_trinary_operator" Uucp.Cjk.is_ids_trinary_operator;
   prop "radical" Uucp.Cjk.is_radical;
   prop "unified_ideograph" Uucp.Cjk.is_unified_ideograph;
   ()

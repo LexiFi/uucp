@@ -78,6 +78,8 @@ let assert_break ucd =
     Uucp.Break.grapheme_cluster;
   prop "word" Uucd.word_break Uucp.Break.word;
   prop "sentence" Uucd.sentence_break Uucp.Break.sentence;
+  prop "indic_conjunct_break"
+    Uucd.indic_conjunct_break Uucp.Break.indic_conjunct_break;
   ()
 
 let assert_case ucd =
@@ -98,13 +100,19 @@ let assert_case ucd =
   map "Map.to_title" Uucd.titlecase_mapping Uucp.Case.Map.to_title;
   map "Fold.fold" Uucd.case_folding Uucp.Case.Fold.fold;
   map "Nfkc_fold.fold" Uucd.nfkc_casefold Uucp.Case.Nfkc_fold.fold;
+  map "Nfkc_simple_fold.fold" Uucd.nfkc_simple_casefold
+    Uucp.Case.Nfkc_simple_fold.fold;
   ()
 
 let assert_cjk ucd =
   let prop fname ucd_p p = prop ucd "Uucd.Cjk" fname (ucd_get ucd_p) p in
   prop "ideographic" Uucd.ideographic Uucp.Cjk.is_ideographic;
-  prop "ids_bin_op" Uucd.ids_binary_operator Uucp.Cjk.is_ids_bin_op;
-  prop "ids_tri_op" Uucd.ids_trinary_operator Uucp.Cjk.is_ids_tri_op;
+  prop "ids_unary_operator"
+    Uucd.ids_unary_operator Uucp.Cjk.is_ids_unary_operator;
+  prop "ids_binary_operator"
+    Uucd.ids_binary_operator Uucp.Cjk.is_ids_binary_operator;
+  prop "ids_trinary_operator"
+    Uucd.ids_trinary_operator Uucp.Cjk.is_ids_trinary_operator;
   prop "radical" Uucd.radical Uucp.Cjk.is_radical;
   prop "unified_ideograph" Uucd.unified_ideograph Uucp.Cjk.is_unified_ideograph;
   ()
@@ -167,6 +175,10 @@ let assert_id ucd =
   prop "is_id_continue" Uucd.id_continue Uucp.Id.is_id_continue;
   prop "is_xid_start" Uucd.xid_start Uucp.Id.is_xid_start;
   prop "is_xid_continue" Uucd.xid_continue Uucp.Id.is_xid_continue;
+  prop "is_id_compat_math_start"
+    Uucd.id_compat_math_start Uucp.Id.is_id_compat_math_start;
+  prop "is_id_compat_math_continue"
+    Uucd.id_compat_math_continue Uucp.Id.is_id_compat_math_continue;
   prop "is_pattern_syntax" Uucd.pattern_syntax Uucp.Id.is_pattern_syntax;
   prop "is_pattern_white_space" Uucd.pattern_white_space
     Uucp.Id.is_pattern_white_space;

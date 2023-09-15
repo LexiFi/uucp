@@ -9,14 +9,14 @@ Uucp is distributed under the ISC license. It has no dependency.
 
 Home page: <http://erratique.ch/software/uucp>
 
-[Uniocde character database]: http://www.unicode.org/reports/tr44/
+[Unicode character database]: http://www.unicode.org/reports/tr44/
 
 ## Installation
 
 Uucp can be installed with `opam`:
 
     opam install uucp
-    opam install cmdliner uutf uunf uucp  # For ucharinfo cli tool
+    opam install uucp uunf cmdliner  # For ucharinfo cli tool
 
 If you don't use `opam` consult the [`opam`](opam) file for build
 instructions.
